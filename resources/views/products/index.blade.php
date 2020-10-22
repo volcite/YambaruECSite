@@ -5,7 +5,7 @@
     <div class="center">
 
         <div class="text-center text-dark">
-            <h1>YouTubeまとめ × SNS</h1>
+            <h3>商品検索画面</h3>
         </div>
 
     </div>

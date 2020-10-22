@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('/');
+
+Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
