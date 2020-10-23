@@ -137,11 +137,23 @@
                             </div>
                         </div>
 
-                        <div class="text-center">
-                            {!! Form::submit('登録',['class'=> 'btn btn-primary w-25']) !!}
-                        </div>
+                        <div class="row">
 
-                        {!! Form::close() !!}
+                            <div class="text-center col-md-6">
+                                {!! Form::submit('修正',['class'=> 'btn btn-primary w-25']) !!}
+                            </div>
+
+                    {!! Form::close() !!}
+
+                            <div class="text-center col-md-6">
+                                @if(Auth::id() == $user->id)
+                                    {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                                        {!! Form::submit('退会', ['class' => 'btn btn-danger w-25']) !!}
+                                    {!! Form::close() !!}
+                                @endif
+                            </div>
+
+                        </div>
                 </div>
             </div>
         </div>

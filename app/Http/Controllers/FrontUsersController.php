@@ -68,4 +68,15 @@ class FrontUsersController extends Controller
             return redirect('/');
 
     }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        if (\Auth::id() == $user->id) {
+            $user->delete();
+        }
+
+        return redirect('/');
+    }
 }

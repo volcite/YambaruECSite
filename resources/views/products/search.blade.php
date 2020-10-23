@@ -25,7 +25,7 @@
                         <div class="form-inline">
                             <p class="">商品カテゴリ</p>
                             <select type="text" class="ml-4" name="category_id" style='width:60%'>
-                                <option hidden>指定なし</option>
+                                <option hidden>未選択</option>
                                 @foreach($categories as $key=>$category)
                                     @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
                                         <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
@@ -71,7 +71,7 @@
                 @endforeach
             </div>
             <div class="col-md-2">
-                <h5 class="mt-2">{{ $product->price }}</h5>
+                <h5 class="mt-2">{{ $product->price }}円</h5>
             </div>
             <div class="col-md-2">
                 {!! link_to_route('products.show','商品詳細',['id'=>$product->id],['class'=>'btn btn-primary mt-1 mb-1']) !!}
