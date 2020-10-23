@@ -26,7 +26,7 @@
                     <li class="nav-item"><a href="/products/" class="nav-link">商品検索</a></li>
                     <li class="nav-item"><a href="/products/cart" class="nav-link">カート</a></li>
                     <li class="nav-item"><a href="/products/show" class="nav-link">注文履歴</a></li>
-                    <li class="nav-item"><a href="/users/show" class="nav-link">ユーザ情報</a></li>
+                    <li class="nav-item">{!! link_to_route('users.show','ユーザ情報',['id'=>Auth::id()],['class'=>'nav-link']) !!}</li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

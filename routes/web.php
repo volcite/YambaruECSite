@@ -16,4 +16,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('/');
 
-Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
+Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show']]);
+Route::get('Search','FrontProductsController@search')->name('search');
+
+Route::resource('users', 'FrontUsersController', ['only' => ['show', 'edit', 'update', 'delete']]);
