@@ -20,3 +20,5 @@ Route::resource('products', 'FrontProductsController', ['only' => ['index', 'sho
 Route::get('Search','FrontProductsController@search')->name('search');
 
 Route::resource('users', 'FrontUsersController', ['only' => ['show', 'edit', 'update', 'destroy']]);
+
+Route::post('/purchase', 'CartController@store')->name('purchase');

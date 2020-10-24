@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateUserRequest;
 use App\User;
 
 class FrontUsersController extends Controller
@@ -39,12 +40,8 @@ class FrontUsersController extends Controller
         return view('users.edit',$data);
     }
 
-    public function update(Request $request, $id)
+    public function update(CreateUserRequest $request, $id)
     {
-        
-            // トランザクション開始
-            \DB::beginTransaction();
-
             $user = User::find($id);
 
             $user->last_name = $request->last_name;
@@ -58,9 +55,6 @@ class FrontUsersController extends Controller
             $user->phone_number = $request->phone_number;
            
             $user->save();
-
-            // トランザクションの保存処理を実行
-            \DB::commit();
 
             //ユーザ情報取得
             $id = $user->id;
