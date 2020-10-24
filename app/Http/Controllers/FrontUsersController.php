@@ -11,7 +11,6 @@ class FrontUsersController extends Controller
     public function show($id)
     {
      
-        //商品指定して取得
         $user = User::find($id);
 
         if (is_null($user)) {
