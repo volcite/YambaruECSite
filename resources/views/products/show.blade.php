@@ -23,16 +23,18 @@
             <h5 class="mt-4">価格：{{ $product->price }}円</h5>
         </div>
 
-
         @auth
-        　　{!! Form::open(['route'=>'purchase', 'method' => 'post']) !!}
+        　　{!! Form::open(['route'=>'carts.store', 'method' => 'post']) !!}
+                @csrf
                 <div class="justify-content-center form-inline">
                     <h5>購入個数</h5>
                     {!! Form::text('quantity',null,['class'=>'form-control form-inline ml-2', 'style'=>'width:50px']) !!}
                     <h5 class="ml-2">個</h5>
+                    <input type="hidden" name="product_id" value="{{ $product -> id }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     {!! Form::submit('カートに入れる',['class'=> 'text-center btn btn-primary form-inline ml-4']) !!}
-                    {!! Form::close() !!}
                 </div>
+                {!! Form::close() !!}
         @endauth
 
         
