@@ -31,7 +31,6 @@
                     {!! Form::text('quantity',null,['class'=>'form-control form-inline ml-2', 'style'=>'width:50px']) !!}
                     <h5 class="ml-2">個</h5>
                     <input type="hidden" name="product_id" value="{{ $product -> id }}">
-                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     {!! Form::submit('カートに入れる',['class'=> 'text-center btn btn-primary form-inline ml-4']) !!}
                 </div>
                 {!! Form::close() !!}

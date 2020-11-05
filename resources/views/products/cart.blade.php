@@ -48,8 +48,6 @@
                 </div>
             </div>
 
-            
-
             <?php $i = 0; ?>
             @foreach($products as $product)
                 <?php $i = $i+1; ?>
@@ -76,7 +74,7 @@
                     </div>
 
                     <div class="justify-content-center form-inline col-md-2">
-                        {!! Form::text('quantity',$product['quantity'],['class'=>'form-control form-inline', 'style'=>'width:50px']) !!}個
+                        {!! Form::text('quantity[i]',$product['quantity'],['class'=>'form-control form-inline', 'style'=>'width:50px', 'form' => 'order']) !!}個
                     </div>
 
                     <div class="text-center col-md-2">
@@ -89,12 +87,17 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
+
+                <input type="hidden" name=products[i-1] value="{{ $product['productInfo']->id }}" form="order">
                 
             @endforeach
 
-
-           
-      
+            <div class="justify-content-center mt-3">
+                {!! Form::open(['route' => ['orders.store'], 'method' => 'post', 'id' => 'order']) !!}
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                    {!! Form::submit('注文する', ['class' => 'btn btn-primary']) !!}
+                {!! Form::close() !!}
+            </div>
 
         </div>
 

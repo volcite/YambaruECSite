@@ -21,6 +21,6 @@ Route::get('Search','FrontProductsController@search')->name('search');
 
 Route::resource('users', 'FrontUsersController', ['only' => ['show', 'edit', 'update', 'destroy']]);
 
-Route::resource('carts', 'CartController', ['only' => ['index', 'store', 'destroy']]);
+Route::resource('carts', 'FrontCartController', ['only' => ['index', 'store', 'destroy']]);
 
 Route::resource('orders', 'FrontOrdersController', ['only' => ['store', 'edit', 'update', 'destroy']]);

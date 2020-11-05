@@ -40,7 +40,7 @@ class FrontProductsController extends Controller
         //キーワードをスペースで区切って配列に入れなおす
         $overviewKeywords = preg_split('/[\p{Z}\p{Cc}]++/u', $descriptionSearchWord, -1, PREG_SPLIT_NO_EMPTY);
 
-        // プルダウンメニューで指定なし以外を選択した場合、$query->whereで選択したものと一致するカラムを取得
+        // プルダウンメニューで未選択以外を選択した場合、$query->whereで選択したものと一致するカラムを取得
         if ($request->has('category_id') && $categorySearchId != ('未選択')) {
             $query->where('category_id', $categorySearchId)->get();
         }
@@ -77,10 +77,6 @@ class FrontProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
     public function show($id)
     {
